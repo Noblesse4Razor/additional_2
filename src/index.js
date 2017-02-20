@@ -1,3 +1,4 @@
 module.exports = function flatten(array) {
-  // your solution
+    let recurArray = arr => arr.reduce((prev, cur) => Array.isArray(cur) ? prev.concat(recurArray(cur)) : prev.concat(cur), []);
+    return Array.isArray(array) ? recurArray(array) : [];
 }
